@@ -1,10 +1,11 @@
-(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))d(e);new MutationObserver(e=>{for(const a of e)if(a.type==="childList")for(const o of a.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&d(o)}).observe(document,{childList:!0,subtree:!0});function f(e){const a={};return e.integrity&&(a.integrity=e.integrity),e.referrerPolicy&&(a.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?a.credentials="include":e.crossOrigin==="anonymous"?a.credentials="omit":a.credentials="same-origin",a}function d(e){if(e.ep)return;e.ep=!0;const a=f(e);fetch(e.href,a)}})();document.querySelector("#app").innerHTML=`
+(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))h(e);new MutationObserver(e=>{for(const a of e)if(a.type==="childList")for(const o of a.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&h(o)}).observe(document,{childList:!0,subtree:!0});function f(e){const a={};return e.integrity&&(a.integrity=e.integrity),e.referrerPolicy&&(a.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?a.credentials="include":e.crossOrigin==="anonymous"?a.credentials="omit":a.credentials="same-origin",a}function h(e){if(e.ep)return;e.ep=!0;const a=f(e);fetch(e.href,a)}})();document.querySelector("#app").innerHTML=`
   <div class="hero-bg"></div>
   <canvas id="bg-canvas"></canvas>
   
   <nav class="navbar">
     <div class="container nav-content">
       <div class="logo">TEJESWAR<span>.</span>SAI</div>
+      <div class="mobile-menu-btn">☰</div>
       <ul class="nav-links">
         <li><a href="#about">Profile</a></li>
         <li><a href="#experience">Career</a></li>
@@ -183,10 +184,10 @@
       </div>
     </div>
   </footer>
-`;const c=document.getElementById("bg-canvas"),s=c.getContext("2d");let n,r,l=[];function p(){n=c.width=window.innerWidth,r=c.height=window.innerHeight}class m{constructor(){this.x=Math.random()*n,this.y=Math.random()*r,this.vx=(Math.random()-.5)*.1,this.vy=(Math.random()-.5)*.1,this.size=Math.random()*1.5,this.opacity=Math.random()*.5,this.fadeSpeed=Math.random()*.002+.001}update(){this.x+=this.vx,this.y+=this.vy,this.opacity+=Math.sin(Date.now()*this.fadeSpeed)*.005,this.x<0&&(this.x=n),this.x>n&&(this.x=0),this.y<0&&(this.y=r),this.y>r&&(this.y=0)}draw(){s.beginPath(),s.arc(this.x,this.y,this.size,0,Math.PI*2),s.fillStyle=`rgba(212, 175, 55, ${Math.abs(this.opacity)})`,s.fill()}}function u(){l=[];for(let i=0;i<150;i++)l.push(new m)}function h(){s.clearRect(0,0,n,r),l.forEach(i=>{i.update(),i.draw()}),requestAnimationFrame(h)}const g={threshold:.1},y=new IntersectionObserver(i=>{i.forEach(t=>{t.isIntersecting&&(t.target.style.opacity="1",t.target.style.transform="translateY(0)")})},g),v=document.createElement("style");v.innerText=`
+`;const c=document.querySelector(".mobile-menu-btn"),l=document.querySelector(".nav-links");c.addEventListener("click",()=>{l.classList.toggle("active"),c.innerHTML=l.classList.contains("active")?"✕":"☰"});document.querySelectorAll(".nav-links a").forEach(i=>{i.addEventListener("click",()=>{l.classList.remove("active"),c.innerHTML="☰"})});const d=document.getElementById("bg-canvas"),s=d.getContext("2d");let n,r,p=[];function v(){n=d.width=window.innerWidth,r=d.height=window.innerHeight}class g{constructor(){this.x=Math.random()*n,this.y=Math.random()*r,this.vx=(Math.random()-.5)*.1,this.vy=(Math.random()-.5)*.1,this.size=Math.random()*1.5,this.opacity=Math.random()*.5,this.fadeSpeed=Math.random()*.002+.001}update(){this.x+=this.vx,this.y+=this.vy,this.opacity+=Math.sin(Date.now()*this.fadeSpeed)*.005,this.x<0&&(this.x=n),this.x>n&&(this.x=0),this.y<0&&(this.y=r),this.y>r&&(this.y=0)}draw(){s.beginPath(),s.arc(this.x,this.y,this.size,0,Math.PI*2),s.fillStyle=`rgba(212, 175, 55, ${Math.abs(this.opacity)})`,s.fill()}}function y(){p=[];for(let i=0;i<150;i++)p.push(new g)}function m(){s.clearRect(0,0,n,r),p.forEach(i=>{i.update(),i.draw()}),requestAnimationFrame(m)}const b={threshold:.1},S=new IntersectionObserver(i=>{i.forEach(t=>{t.isIntersecting&&(t.target.style.opacity="1",t.target.style.transform="translateY(0)")})},b),u=document.createElement("style");u.innerText=`
   .match-fade {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 1s ease, transform 1s ease;
   }
-`;document.head.appendChild(v);setTimeout(()=>{document.querySelectorAll(".match-fade").forEach(i=>y.observe(i))},100);window.addEventListener("resize",p);p();u();h();
+`;document.head.appendChild(u);setTimeout(()=>{document.querySelectorAll(".match-fade").forEach(i=>S.observe(i))},100);window.addEventListener("resize",v);v();y();m();
