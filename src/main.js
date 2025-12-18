@@ -21,7 +21,7 @@ document.querySelector('#app').innerHTML = `
     <section id="about" class="hero-section">
       <div class="container hero-content">
         <div class="profile-container match-fade">
-          <img src="/profile.jpg" alt="Tejeswar Sai M" class="profile-image" />
+          <img src="./profile.jpg" alt="Tejeswar Sai M" class="profile-image" />
         </div>
         <span class="subtitle match-fade delay-100">Big Data Developer | Cloud Engineer</span>
         <h1 class="match-fade delay-200">Engineering Scalable<br>Data Solutions.</h1>
@@ -123,7 +123,7 @@ document.querySelector('#app').innerHTML = `
           <!-- Project 1 -->
           <div class="project-row">
             <div class="project-visual">
-              <img src="/project-migration.png" alt="SQL to Spark Migration" style="width: 100%; height: 100%; object-fit: cover;" />
+              <img src="./project-migration.png" alt="SQL to Spark Migration" style="width: 100%; height: 100%; object-fit: cover;" />
             </div>
             <div class="project-info">
               <div class="subtitle">Migration & Optimization</div>
@@ -139,7 +139,7 @@ document.querySelector('#app').innerHTML = `
           <!-- Project 2 -->
           <div class="project-row reverse">
             <div class="project-visual">
-              <img src="/project-analytics.png" alt="Azure Analytics" style="width: 100%; height: 100%; object-fit: cover;" />
+              <img src="./project-analytics.png" alt="Azure Analytics" style="width: 100%; height: 100%; object-fit: cover;" />
             </div>
             <div class="project-info">
               <div class="subtitle">Cloud Analytics</div>
