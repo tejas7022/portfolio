@@ -230,13 +230,28 @@ h2 {
 }
 
 .hero-bg {
-  position: absolute;
+  position: fixed;
   top: 0;
-  right: 0;
-  bottom: 0;
   left: 0;
-  background: radial-gradient(circle at 70% 30%, #1a1e26 0%, var(--bg-primary) 70%);
+  width: 100%;
+  height: 100vh;
+  z-index: -2;
+  background:
+    linear-gradient(to bottom, rgba(11, 13, 16, 0.8), rgba(11, 13, 16, 0.95)),
+    url('/hero-bg.png') no-repeat center center;
+  background-size: cover;
+  filter: contrast(110%);
+}
+
+#bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   z-index: -1;
+  opacity: 0.3;
+  pointer-events: none;
 }
 
 .hero-content {
